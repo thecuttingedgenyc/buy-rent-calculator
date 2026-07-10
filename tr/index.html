@@ -1,0 +1,529 @@
+<!--
+  Rent vs Own Calculator
+  Copyright (c) 2026 Razbag LLC. All rights reserved.
+  This code is proprietary and may not be copied, redistributed, or
+  reused without written permission from Razbag LLC.
+-->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirala vs Satın Al Hesaplayıcısı — Başabaş yılınızı bulun</title>
+<meta name="description" content="Ücretsiz kirala vs satın al hesaplayıcısı. Fırsat maliyeti, değer artışı ve başabaş yılınız dahil, kiralamanın ve ev satın almanın gerçek uzun vadeli maliyetini karşılaştırın.">
+<link rel="alternate" hreflang="en" href="https://buy-rent-calculator.com/">
+<link rel="alternate" hreflang="zh" href="https://buy-rent-calculator.com/zh/">
+<link rel="alternate" hreflang="hi" href="https://buy-rent-calculator.com/hi/">
+<link rel="alternate" hreflang="es" href="https://buy-rent-calculator.com/es/">
+<link rel="alternate" hreflang="fr" href="https://buy-rent-calculator.com/fr/">
+<link rel="alternate" hreflang="ar" href="https://buy-rent-calculator.com/ar/">
+<link rel="alternate" hreflang="bn" href="https://buy-rent-calculator.com/bn/">
+<link rel="alternate" hreflang="pt" href="https://buy-rent-calculator.com/pt/">
+<link rel="alternate" hreflang="ru" href="https://buy-rent-calculator.com/ru/">
+<link rel="alternate" hreflang="ur" href="https://buy-rent-calculator.com/ur/">
+<link rel="alternate" hreflang="id" href="https://buy-rent-calculator.com/id/">
+<link rel="alternate" hreflang="de" href="https://buy-rent-calculator.com/de/">
+<link rel="alternate" hreflang="ja" href="https://buy-rent-calculator.com/ja/">
+<link rel="alternate" hreflang="sw" href="https://buy-rent-calculator.com/sw/">
+<link rel="alternate" hreflang="mr" href="https://buy-rent-calculator.com/mr/">
+<link rel="alternate" hreflang="te" href="https://buy-rent-calculator.com/te/">
+<link rel="alternate" hreflang="tr" href="https://buy-rent-calculator.com/tr/">
+<link rel="alternate" hreflang="ta" href="https://buy-rent-calculator.com/ta/">
+<link rel="alternate" hreflang="vi" href="https://buy-rent-calculator.com/vi/">
+<link rel="alternate" hreflang="ko" href="https://buy-rent-calculator.com/ko/">
+<link rel="alternate" hreflang="it" href="https://buy-rent-calculator.com/it/">
+<link rel="alternate" hreflang="ha" href="https://buy-rent-calculator.com/ha/">
+<link rel="alternate" hreflang="th" href="https://buy-rent-calculator.com/th/">
+<link rel="alternate" hreflang="gu" href="https://buy-rent-calculator.com/gu/">
+<link rel="alternate" hreflang="kn" href="https://buy-rent-calculator.com/kn/">
+<link rel="alternate" hreflang="fa" href="https://buy-rent-calculator.com/fa/">
+<link rel="alternate" hreflang="pl" href="https://buy-rent-calculator.com/pl/">
+<link rel="alternate" hreflang="uk" href="https://buy-rent-calculator.com/uk/">
+<link rel="alternate" hreflang="ml" href="https://buy-rent-calculator.com/ml/">
+<link rel="alternate" hreflang="pa" href="https://buy-rent-calculator.com/pa/">
+<link rel="alternate" hreflang="am" href="https://buy-rent-calculator.com/am/">
+<link rel="alternate" hreflang="or" href="https://buy-rent-calculator.com/or/">
+<link rel="alternate" hreflang="ro" href="https://buy-rent-calculator.com/ro/">
+<link rel="alternate" hreflang="my" href="https://buy-rent-calculator.com/my/">
+<link rel="alternate" hreflang="uz" href="https://buy-rent-calculator.com/uz/">
+<link rel="alternate" hreflang="az" href="https://buy-rent-calculator.com/az/">
+<link rel="alternate" hreflang="nl" href="https://buy-rent-calculator.com/nl/">
+<link rel="alternate" hreflang="el" href="https://buy-rent-calculator.com/el/">
+<link rel="alternate" hreflang="hu" href="https://buy-rent-calculator.com/hu/">
+<link rel="alternate" hreflang="he" href="https://buy-rent-calculator.com/he/">
+<link rel="alternate" hreflang="x-default" href="https://buy-rent-calculator.com/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4693602144949381" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16233D;
+    --navy-line:#2B4066;
+    --paper:#F3EEDF;
+    --paper-dim:#E6DFC8;
+    --ink:#232420;
+    --ink-soft:#5B5C54;
+    --clay:#A6533C;
+    --clay-deep:#7C3D2B;
+    --steel:#4C7A9E;
+    --steel-deep:#355A78;
+    --brass:#B08D57;
+    --brass-deep:#8A6C3D;
+    --green:#5C8A63;
+    --red:#B14A3C;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--navy);
+    background-image:
+      linear-gradient(var(--navy-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--navy-line) 1px, transparent 1px);
+    background-size: 34px 34px;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    padding:28px 16px 80px;
+  }
+  .wrap{max-width:1040px;margin:0 auto;}
+
+  .lang-bar{display:flex; justify-content:flex-end; gap:8px; padding:0 4px; flex-wrap:wrap;}
+  .lang-bar select{
+    background:var(--paper); border:1px solid var(--navy-line); border-radius:6px;
+    color:var(--ink); font-family:'IBM Plex Mono',monospace; font-size:12px;
+    padding:6px 10px; cursor:pointer;
+  }
+
+  .hero{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:24px;
+    flex-wrap:wrap; padding:28px 4px 20px; border-bottom:1px solid rgba(243,238,223,0.25);
+    margin-bottom:24px;
+  }
+  .hero-text h1{
+    font-family:'Fraunces',serif; font-weight:500; font-size:clamp(32px,5vw,48px);
+    color:var(--paper); margin:0 0 8px; letter-spacing:-0.01em;
+  }
+  .hero-text p{color:#B9C2D6; font-size:15px; max-width:480px; margin:0; line-height:1.6;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--brass); margin:0 0 10px;
+  }
+
+  .stamp{
+    background:var(--paper); border:2px solid var(--ink); border-radius:6px;
+    padding:16px 22px; min-width:220px; transform:rotate(-2deg);
+    box-shadow:4px 4px 0 rgba(0,0,0,0.35);
+  }
+  .stamp .verdict-label{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft);}
+  .stamp .verdict-value{font-family:'Fraunces',serif; font-weight:600; font-size:26px; margin:2px 0 4px;}
+  .stamp .verdict-sub{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);}
+  .stamp.buy .verdict-value{color:var(--clay-deep);}
+  .stamp.rent .verdict-value{color:var(--steel-deep);}
+
+  .ad-slot{
+    background:rgba(243,238,223,0.06); border:1px dashed rgba(243,238,223,0.3);
+    border-radius:8px; color:#8492AC; font-family:'IBM Plex Mono',monospace; font-size:11px;
+    text-align:center; display:flex; align-items:center; justify-content:center;
+    margin:20px auto;
+  }
+  .ad-leaderboard{max-width:728px; min-height:90px;}
+  .ad-incontent{max-width:100%; min-height:100px;}
+
+  .card{
+    background:var(--paper); border-radius:14px; padding:26px; margin-bottom:22px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.25);
+  }
+  .card h2{
+    font-family:'Fraunces',serif; font-weight:500; font-size:20px; margin:0 0 4px;
+  }
+  .card .card-sub{color:var(--ink-soft); font-size:13px; margin:0 0 18px;}
+
+  .ledger{display:grid; grid-template-columns:1fr 1fr; gap:0; border-top:1px solid var(--paper-dim);}
+  @media(max-width:720px){.ledger{grid-template-columns:1fr;}}
+  .col{padding:20px 22px;}
+  .col.buy{border-right:1px solid var(--paper-dim);}
+  @media(max-width:720px){.col.buy{border-right:none; border-bottom:1px solid var(--paper-dim);}}
+  .col-title{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    margin:0 0 14px; padding-bottom:8px; border-bottom:2px solid;
+  }
+  .col.buy .col-title{color:var(--clay-deep); border-color:var(--clay);}
+  .col.rent .col-title{color:var(--steel-deep); border-color:var(--steel);}
+
+  .field{margin-bottom:13px;}
+  .field label{display:flex; justify-content:space-between; font-size:12.5px; color:var(--ink-soft); margin-bottom:4px; gap:8px;}
+  .field input{
+    width:100%; padding:8px 10px; border:1px solid #C9C2AA; border-radius:6px;
+    background:#fff; font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--ink);
+  }
+  .field input:focus{outline:2px solid var(--brass); outline-offset:1px;}
+
+  .shared-row{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px;
+    padding:18px 22px; border-top:1px solid var(--paper-dim); background:var(--paper-dim);
+    border-radius:0 0 14px 14px;
+  }
+  .shared-row .field{margin-bottom:0;}
+
+  .results-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:18px;}
+  @media(max-width:720px){.results-grid{grid-template-columns:1fr;}}
+  .stat{background:var(--paper-dim); border-radius:10px; padding:16px 18px;}
+  .stat .stat-label{font-size:11.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); font-family:'IBM Plex Mono',monospace;}
+  .stat .stat-value{font-family:'Fraunces',serif; font-size:26px; font-weight:500; margin-top:4px;}
+  .stat.own .stat-value{color:var(--clay-deep);}
+  .stat.rent .stat-value{color:var(--steel-deep);}
+
+  canvas{width:100%; height:auto; display:block;}
+  .legend{display:flex; gap:20px; font-size:12.5px; color:var(--ink-soft); margin-top:10px; font-family:'IBM Plex Mono',monospace; flex-wrap:wrap;}
+  .legend span{display:inline-flex; align-items:center; gap:6px;}
+  .swatch{width:12px; height:3px; display:inline-block; border-radius:2px;}
+
+  .note{font-size:12.5px; color:var(--ink-soft); line-height:1.6; margin-top:14px;}
+
+  footer{text-align:center; color:#7C87A3; font-size:12px; margin-top:30px; font-family:'IBM Plex Mono',monospace;}
+  footer a{color:var(--brass);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="lang-bar">
+    <select id="currencySelect" aria-label="Currency">
+      <option value="USD" selected>USD ($)</option>
+      <option value="EUR">EUR (€)</option>
+      <option value="GBP">GBP (£)</option>
+      <option value="INR">INR (₹)</option>
+      <option value="JPY">JPY (¥)</option>
+      <option value="CNY">CNY (¥)</option>
+      <option value="BRL">BRL (R$)</option>
+      <option value="RUB">RUB (₽)</option>
+      <option value="CAD">CAD (C$)</option>
+      <option value="AUD">AUD (A$)</option>
+      <option value="MXN">MXN (MX$)</option>
+      <option value="ZAR">ZAR (R)</option>
+      <option value="KRW">KRW (₩)</option>
+      <option value="TRY">TRY (₺)</option>
+      <option value="IDR">IDR (Rp)</option>
+      <option value="NGN">NGN (₦)</option>
+      <option value="AED">AED</option>
+      <option value="CHF">CHF (Fr)</option>
+      <option value="SGD">SGD (S$)</option>
+      <option value="SEK">SEK (kr)</option>
+      <option value="ILS">ILS (₪)</option>
+    </select>
+    <select id="langSwitch" onchange="if(this.value) window.location.href=this.value;" aria-label="Language">
+      <option value="/">English</option>
+      <option value="/zh/">中文</option>
+      <option value="/hi/">हिन्दी</option>
+      <option value="/es/">Español</option>
+      <option value="/fr/">Français</option>
+      <option value="/ar/">العربية</option>
+      <option value="/bn/">বাংলা</option>
+      <option value="/pt/">Português</option>
+      <option value="/ru/">Русский</option>
+      <option value="/ur/">اردو</option>
+      <option value="/id/">Indonesia</option>
+      <option value="/de/">Deutsch</option>
+      <option value="/ja/">日本語</option>
+      <option value="/sw/">Kiswahili</option>
+      <option value="/mr/">मराठी</option>
+      <option value="/te/">తెలుగు</option>
+      <option value="/tr/" selected>Türkçe</option>
+      <option value="/ta/">தமிழ்</option>
+      <option value="/vi/">Tiếng Việt</option>
+      <option value="/ko/">한국어</option>
+      <option value="/it/">Italiano</option>
+      <option value="/ha/">Hausa</option>
+      <option value="/th/">ไทย</option>
+      <option value="/gu/">ગુજરાતી</option>
+      <option value="/kn/">ಕನ್ನಡ</option>
+      <option value="/fa/">فارسی</option>
+      <option value="/pl/">Polski</option>
+      <option value="/uk/">Українська</option>
+      <option value="/ml/">മലയാളം</option>
+      <option value="/pa/">ਪੰਜਾਬੀ</option>
+      <option value="/am/">አማርኛ</option>
+      <option value="/or/">ଓଡ଼ିଆ</option>
+      <option value="/ro/">Română</option>
+      <option value="/my/">မြန်မာ</option>
+      <option value="/uz/">Oʻzbekcha</option>
+      <option value="/az/">Azərbaycan</option>
+      <option value="/nl/">Nederlands</option>
+      <option value="/el/">Ελληνικά</option>
+      <option value="/hu/">Magyar</option>
+      <option value="/he/">עברית</option>
+    </select>
+  </div>
+
+  <div class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Ücretsiz hesaplayıcı</p>
+      <h1>Kirala vs Satın Al</h1>
+      <p>Zaman içinde hangi seçeneğin daha fazla servet oluşturduğunu görün — kiralamanın yatırım için serbest bıraktığı para dahil. Aşağıdaki herhangi bir sayıyı değiştirin, sonuç anında güncellenir.</p>
+    </div>
+    <div class="stamp buy" id="stamp">
+      <div class="verdict-label">Sonuç</div>
+      <div class="verdict-value" id="verdictValue">Hesaplanıyor…</div>
+      <div class="verdict-sub" id="verdictSub">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="ad-slot ad-leaderboard">Reklam alanı — 728×90</div>
+
+  <div class="card">
+    <h2>Sayılarınız</h2>
+    <p class="card-sub">Varsayılan değerler makul ulusal ortalamalardır — kendi şehrinizin fiyat ve kiralarıyla değiştirin.</p>
+
+    <div class="ledger">
+      <div class="col buy">
+        <p class="col-title">Satın Alma</p>
+        <div class="field"><label>Ev fiyatı <span class="cur" data-suf="">$</span></label><input type="number" id="price" value="450000" step="1000"></div>
+        <div class="field"><label>Peşinat <span>%</span></label><input type="number" id="down" value="20" step="1"></div>
+        <div class="field"><label>Konut kredisi faizi <span>% / yıl</span></label><input type="number" id="rate" value="6.5" step="0.1"></div>
+        <div class="field"><label>Kredi vadesi <span>yıl</span></label><input type="number" id="term" value="30" step="1"></div>
+        <div class="field"><label>Emlak vergisi <span>% / yıl</span></label><input type="number" id="proptax" value="1.1" step="0.1"></div>
+        <div class="field"><label>Konut sigortası <span class="cur" data-suf=" / yıl">$ / yıl</span></label><input type="number" id="hins" value="1400" step="50"></div>
+        <div class="field"><label>Bakım <span>% / yıl</span></label><input type="number" id="maint" value="1" step="0.1"></div>
+        <div class="field"><label>Site aidatı <span class="cur" data-suf=" / ay">$ / ay</span></label><input type="number" id="hoa" value="0" step="10"></div>
+        <div class="field"><label>Ev değer artışı <span>% / yıl</span></label><input type="number" id="appr" value="3.5" step="0.1"></div>
+        <div class="field"><label>Kapanış masrafları (alım) <span>%</span></label><input type="number" id="closing" value="3" step="0.5"></div>
+        <div class="field"><label>Satış masrafları (sonra) <span>%</span></label><input type="number" id="selling" value="6" step="0.5"></div>
+      </div>
+      <div class="col rent">
+        <p class="col-title">Kiralama</p>
+        <div class="field"><label>Aylık kira <span class="cur" data-suf="">$</span></label><input type="number" id="rent" value="2200" step="50"></div>
+        <div class="field"><label>Yıllık kira artışı <span>%</span></label><input type="number" id="rentinc" value="3" step="0.1"></div>
+        <div class="field"><label>Kiracı sigortası <span class="cur" data-suf=" / yıl">$ / yıl</span></label><input type="number" id="rins" value="180" step="10"></div>
+      </div>
+    </div>
+
+    <div class="shared-row">
+      <div class="field"><label>Yatırım getirisi <span>% / yıl</span></label><input type="number" id="invret" value="6" step="0.1"></div>
+      <div class="field"><label>Karşılaştırılacak yıl sayısı <span>yıl</span></label><input type="number" id="horizon" value="10" step="1"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Zaman içinde net değer</h2>
+    <p class="card-sub">Satın alma, dönem sonunda sattığınızı varsayar. Kiralama, peşinatı, kapanış masraflarını ve satın almaya kıyasla aylık tasarrufları yatırdığınızı varsayar.</p>
+
+    <div class="results-grid">
+      <div class="stat own">
+        <div class="stat-label">Satın alırsanız net değer</div>
+        <div class="stat-value" id="buyFinal">$0</div>
+      </div>
+      <div class="stat rent">
+        <div class="stat-label">Kiralarsanız net değer</div>
+        <div class="stat-value" id="rentFinal">$0</div>
+      </div>
+    </div>
+
+    <canvas id="chart" width="960" height="360"></canvas>
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--clay)"></i>Satın alma — satış masrafları sonrası ev özkaynağı</span>
+      <span><i class="swatch" style="background:var(--steel)"></i>Kiralama — yatırılan birikim</span>
+    </div>
+
+    <p class="note" id="breakevenNote"></p>
+    <p class="note">Bu, genel planlama için basitleştirilmiş bir modeldir — yatırım kazançlarına ilişkin vergileri, konut kredisi faiz indirimlerini, yeniden finansmanı veya tek bir satışın ötesindeki taşınma masraflarını hesaba katmaz. Durumunuza özel kararlar için bir finansal danışmana başvurun.</p>
+  </div>
+
+  <div class="ad-slot ad-incontent">Reklam alanı — içerik içi birim</div>
+
+  <footer>
+    &copy; 2026 Razbag LLC. Tüm hakları saklıdır. · Hiçbir veri tarayıcınızdan çıkmaz · <a href="/privacy-policy.html">Gizlilik Politikası (İngilizce)</a>
+  </footer>
+</div>
+
+<script>
+const currencySymbols = {USD:'$',EUR:'€',GBP:'£',INR:'₹',JPY:'¥',CNY:'¥',BRL:'R$',RUB:'₽',CAD:'C$',AUD:'A$',MXN:'MX$',ZAR:'R',KRW:'₩',TRY:'₺',IDR:'Rp',NGN:'₦',AED:'AED',CHF:'Fr',SGD:'S$',SEK:'kr',ILS:'₪'};
+let currentCurrency = 'USD';
+
+function fmt(n){
+  const sign = n<0 ? '-' : '';
+  n = Math.abs(n);
+  return sign + currencySymbols[currentCurrency] + Math.round(n).toLocaleString('en-US');
+}
+
+function applyCurrency(code){
+  currentCurrency = code;
+  const sym = currencySymbols[code];
+  document.querySelectorAll('.cur').forEach(function(el){
+    const suf = el.getAttribute('data-suf')||'';
+    el.textContent = sym + suf;
+  });
+  update();
+}
+
+function calculate(){
+  const price = parseFloat(document.getElementById('price').value)||0;
+  const downPct = parseFloat(document.getElementById('down').value)||0;
+  const rate = parseFloat(document.getElementById('rate').value)||0;
+  const term = parseFloat(document.getElementById('term').value)||30;
+  const propTaxPct = parseFloat(document.getElementById('proptax').value)||0;
+  const hins = parseFloat(document.getElementById('hins').value)||0;
+  const maintPct = parseFloat(document.getElementById('maint').value)||0;
+  const hoa = parseFloat(document.getElementById('hoa').value)||0;
+  const apprPct = parseFloat(document.getElementById('appr').value)||0;
+  const closingPct = parseFloat(document.getElementById('closing').value)||0;
+  const sellingPct = parseFloat(document.getElementById('selling').value)||0;
+
+  const rentStart = parseFloat(document.getElementById('rent').value)||0;
+  const rentIncPct = parseFloat(document.getElementById('rentinc').value)||0;
+  const rins = parseFloat(document.getElementById('rins').value)||0;
+
+  const investPct = parseFloat(document.getElementById('invret').value)||0;
+  const horizon = Math.max(1, Math.round(parseFloat(document.getElementById('horizon').value)||10));
+
+  const downPayment = price*downPct/100;
+  const closingCost = price*closingPct/100;
+  let loanBalance = price - downPayment;
+  const monthlyRate = (rate/100)/12;
+  const totalPayments = term*12;
+  let M;
+  if(monthlyRate===0){ M = loanBalance/totalPayments; }
+  else { M = loanBalance*monthlyRate*Math.pow(1+monthlyRate,totalPayments) / (Math.pow(1+monthlyRate,totalPayments)-1); }
+
+  let homeValue = price;
+  let rentCurrent = rentStart;
+  let renterPortfolio = downPayment + closingCost;
+
+  const buySeries = [0];
+  const rentSeries = [downPayment+closingCost];
+  const yearsLabels = [0];
+
+  const totalMonths = horizon*12;
+  for(let m=1; m<=totalMonths; m++){
+    let mortgagePmt = 0;
+    if(m<=totalPayments && loanBalance>0){
+      const interestPortion = loanBalance*monthlyRate;
+      let principalPortion = M-interestPortion;
+      if(principalPortion>loanBalance) principalPortion=loanBalance;
+      loanBalance -= principalPortion;
+      mortgagePmt = M;
+    }
+    homeValue *= (1+apprPct/100/12);
+    const propTaxM = homeValue*propTaxPct/100/12;
+    const insM = hins/12;
+    const maintM = homeValue*maintPct/100/12;
+    const buyMonthlyCost = mortgagePmt + propTaxM + insM + maintM + hoa;
+
+    const rinsM = rins/12;
+    const rentMonthlyCost = rentCurrent + rinsM;
+
+    const diff = buyMonthlyCost - rentMonthlyCost;
+    renterPortfolio *= (1+investPct/100/12);
+    renterPortfolio += diff;
+
+    if(m%12===0){
+      rentCurrent *= (1+rentIncPct/100);
+      const buyerNetWorth = homeValue*(1-sellingPct/100) - Math.max(loanBalance,0);
+      buySeries.push(buyerNetWorth);
+      rentSeries.push(renterPortfolio);
+      yearsLabels.push(m/12);
+    }
+  }
+
+  return {buySeries, rentSeries, yearsLabels, downPayment, closingCost};
+}
+
+function drawChart(buySeries, rentSeries){
+  const canvas = document.getElementById('chart');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0,0,W,H);
+
+  const padL=70, padR=20, padT=20, padB=36;
+  const plotW = W-padL-padR, plotH = H-padT-padB;
+
+  const allVals = buySeries.concat(rentSeries);
+  const maxVal = Math.max(...allVals, 1);
+  const minVal = Math.min(...allVals, 0);
+  const range = maxVal-minVal || 1;
+
+  ctx.strokeStyle = '#D8D1B8';
+  ctx.lineWidth = 1;
+  ctx.font = '11px IBM Plex Mono, monospace';
+  ctx.fillStyle = '#5B5C54';
+  const gridLines = 5;
+  for(let i=0;i<=gridLines;i++){
+    const y = padT + plotH - (plotH*i/gridLines);
+    const val = minVal + (range*i/gridLines);
+    ctx.beginPath();
+    ctx.moveTo(padL,y);
+    ctx.lineTo(W-padR,y);
+    ctx.stroke();
+    ctx.fillText(currencySymbols[currentCurrency]+Math.round(val/1000)+'k', 6, y+4);
+  }
+
+  function plot(series, color){
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    series.forEach((v,i)=>{
+      const x = padL + (plotW*i/(series.length-1));
+      const y = padT + plotH - ((v-minVal)/range*plotH);
+      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+  }
+  plot(buySeries, '#A6533C');
+  plot(rentSeries, '#4C7A9E');
+
+  ctx.fillStyle = '#5B5C54';
+  ctx.font = '11px IBM Plex Mono, monospace';
+  const nYears = buySeries.length-1;
+  const step = nYears<=10 ? 1 : Math.ceil(nYears/10);
+  for(let i=0;i<=nYears;i+=step){
+    const x = padL + (plotW*i/nYears);
+    ctx.fillText('Yıl '+i, x-10, H-14);
+  }
+}
+
+function update(){
+  const {buySeries, rentSeries, yearsLabels} = calculate();
+  const buyFinal = buySeries[buySeries.length-1];
+  const rentFinal = rentSeries[rentSeries.length-1];
+
+  document.getElementById('buyFinal').textContent = fmt(buyFinal);
+  document.getElementById('rentFinal').textContent = fmt(rentFinal);
+
+  let breakevenYear = null;
+  for(let i=0;i<buySeries.length;i++){
+    if(buySeries[i] >= rentSeries[i]){ breakevenYear = yearsLabels[i]; break; }
+  }
+
+  const stamp = document.getElementById('stamp');
+  const verdictValue = document.getElementById('verdictValue');
+  const verdictSub = document.getElementById('verdictSub');
+  const note = document.getElementById('breakevenNote');
+
+  const diff = buyFinal - rentFinal;
+  if(diff>0){
+    stamp.className='stamp buy';
+    verdictValue.textContent = 'Satın alma kazanıyor';
+    verdictSub.textContent = fmt(Math.abs(diff)) + ' önde';
+  } else {
+    stamp.className='stamp rent';
+    verdictValue.textContent = 'Kiralama kazanıyor';
+    verdictSub.textContent = fmt(Math.abs(diff)) + ' önde';
+  }
+
+  if(breakevenYear===null){
+    note.textContent = 'Bu zaman diliminde, kiralama ve farkı yatırıma yönlendirmek her zaman önde kalır — satın alma hiçbir zaman yetişemez.';
+  } else if(breakevenYear===0){
+    note.textContent = 'Bu senaryoda satın alma ilk yıldan itibaren önde.';
+  } else {
+    note.textContent = 'Satın alma, kiralamayı yaklaşık ' + breakevenYear + '. yılda geçer — bu sizin başabaş noktanız.';
+  }
+
+  drawChart(buySeries, rentSeries);
+}
+
+document.getElementById('currencySelect').addEventListener('change', function(){ applyCurrency(this.value); });
+document.querySelectorAll('input').forEach(el=>el.addEventListener('input', update));
+update();
+</script>
+</body>
+</html>
